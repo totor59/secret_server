@@ -1,0 +1,40 @@
+{% extends "layout/base.html" %}
+{% block navbar %}
+<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <h3>t0t0r&nbsp;<small class="text-muted">Vault server</small></h3>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">
+            <i class="fa fa-lg fa-fw fa-link" aria-hidden="true"></i>&nbsp;URL
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa fa-lg fa-fw fa-user-secret" aria-hidden="true"></i>Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa fa-lg fa-fw fa-key" aria-hidden="true"></i>&nbsp;Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-lg fa-btc" aria-hidden="true"></i>&nbsp;Cryptocurrency</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-lg fa-file-o" aria-hidden="true"></i>&nbsp;File</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+  {% endblock %}
