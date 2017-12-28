@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/lib/bootstrap.min.css.map') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/lib/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+	<script type=text/javascript>var $SCRIPT_ROOT = '{{ request.base_url }}';</script>
     {% endblock %}
 </head>
 <body>
@@ -23,9 +24,6 @@
   <script type="text/javascript" src='{{ url_for('static', filename='js/lib/vue.js') }}'></script>
   <script type="text/javascript" src='{{ url_for('static', filename='js/lib/vue-resource.min.js') }}'></script>
   {% endblock %}
-<script type=text/javascript>
-  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
   </div>
 </body>
 </html>

@@ -1,2 +1,6 @@
+# SSL 
 key.pem
 cert.pem
+
+# CACHE
+__pycache__

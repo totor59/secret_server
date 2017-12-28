@@ -6,7 +6,6 @@ from functools import wraps
 import yaml
 import hashlib
 import click
-import json
 
 # CONFIG FILE
 with open("config.yml", 'r') as ymlfile:
@@ -56,4 +55,4 @@ def home():
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", debug=True, ssl_context=('cert.pem', 'key.pem'))
