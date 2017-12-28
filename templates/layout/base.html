@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     {% block head %}
     <title>{% block title %}{% endblock %} - My Webpage</title>
@@ -16,10 +17,15 @@
     <div id="content" class="container">{% block content %}{% endblock %}</div>
   {% block footer %}
   <script type="text/javascript" src='{{ url_for('static', filename='js/lib/jquery-3.2.1.slim.min.js') }}'></script>
+  <script type="text/javascript" src='{{ url_for('static', filename='js/lib/crypto-js.min.js') }}'></script>
   <script type="text/javascript" src='{{ url_for('static', filename='js/lib/popper.min.js') }}'></script>
   <script type="text/javascript" src='{{ url_for('static', filename='js/lib/bootstrap.min.js') }}'></script>
   <script type="text/javascript" src='{{ url_for('static', filename='js/lib/vue.js') }}'></script>
+  <script type="text/javascript" src='{{ url_for('static', filename='js/lib/vue-resource.min.js') }}'></script>
   {% endblock %}
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
   </div>
 </body>
 </html>

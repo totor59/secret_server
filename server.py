@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # coding: utf8
-from flask import Flask, flash, redirect, render_template, request, session, abort
+from flask import Flask, flash, redirect, render_template, request, session, abort, jsonify
 import os
 from functools import wraps
 import yaml
 import hashlib
 import click
-
+import json
 
 # CONFIG FILE
 with open("config.yml", 'r') as ymlfile:
@@ -32,12 +32,13 @@ def login_required(f):
 
 @app.route('/login', methods=['POST'])
 def login():
-    passwd = hashlib.sha256(request.form['password']).hexdigest()
-    if passwd == usr['password'] and request.form['username'] == usr['name']:
-        session['logged_in'] = True
-    else:
-        flash('Wrong username/password!')
-    return home()
+	if request.method == 'POST':
+		if request.form['password'] == usr['password']:
+			session['logged_in'] = True
+			return jsonify({'msg': 'success'})
+		else:
+			flash('Wrong username/password!')
+			return jsonify({'msg': 'fail'})
 
 
 @login_required
@@ -55,4 +56,4 @@ def home():
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
-    app.run(host="0.0.0.0", debug=True, ssl_context=('cert.pem', 'key.pem'))
+    app.run(host="0.0.0.0", debug=True)
